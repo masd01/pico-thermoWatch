@@ -4,19 +4,19 @@ import time
 import utime
 from machine import ADC
 
-#initialize sensor
+#set up thermo sensor
 sensor_temp = ADC(4) 
 conversion_factor = 3.3 / (65535)
 
-# Set up the OLED display
+#set up the OLED display
 i2c = machine.I2C(0, sda=machine.Pin(0), scl=machine.Pin(1))
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
-# Set up the buttons
+#set up the buttons
 button1 = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_UP)
 button2 = machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_UP)
 
-# Initialize variables
+#initialize variables
 hours = 0
 minutes = 0
 seconds = 0
@@ -25,7 +25,7 @@ seconds = 0
 #years = 0
 times1 = 0
 
-# Function to update the time
+#function to update the time
 def update_time():
     global hours, minutes, seconds, days, months, years
     seconds += 1
@@ -38,14 +38,14 @@ def update_time():
             if hours == 24:
                 hours = 0
 
-# Main loop
+#main loop
 while True:
     #get temperature    
     reading = sensor_temp.read_u16() * conversion_factor
     temperature = 27 - (reading - 0.706)/0.001721
     tstring=str(temperature)
 
-    # Check if button 1 is pressed
+    #check if button 1 is pressed
     if not button1.value():
         times1 += 1
         if times1 == 1:
@@ -83,7 +83,7 @@ while True:
 #            oled.show()
 #            utime.sleep(1)
 
-    # Check if button 2 is pressed
+    #check if button 2 is pressed
     if not button2.value():
         if times1 == 1:
             hours += 1
@@ -110,24 +110,24 @@ while True:
 #            oled.show()
 #            utime.sleep(1)
 
-    # Update the time
+    #update time
     update_time()
 
-    # Clear the display
+    #clear display
     oled.fill(0)
 
-    # Display the time
+    #display time
     oled.text("{:02d}:{:02d}:{:02d}".format(hours, minutes, seconds), 0, 0)
 
-    # Display the date
+    #display date
     oled.text("{:02d}/{:02d}/{}".format(utime.localtime()[2], utime.localtime()[1], utime.localtime()[0]), 0, 20)
     
-    # Display temperature
+    #display temperature
     oled.text('Temp: '+ tstring,0,40)
 
-    # Show the display
+    #show on the display
     oled.show()
 
-    # Delay for 1 second
+    #delay 1 sec
     utime.sleep(1)
     
