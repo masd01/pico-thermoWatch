@@ -1,4 +1,3 @@
-# Import necessary libraries
 import machine
 import ssd1306
 import time
