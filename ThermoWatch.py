@@ -64,23 +64,23 @@ while True:
         elif times1 == 3:
             times1 = 0
             oled.fill(0)
-            oled.text('masd',46,20)
+            oled.text('masd',46,20) # that's me :)
             oled.show()
             time.sleep(1)
 #        elif times1 == 4:           
 #            oled.fill(0)
-#            oled.text('Set',0,0)
+#            oled.text('Set',0,0)     #how to do that?
 #            oled.text('Day',0,20)
 #            oled.show()
 #            time.sleep(1)
 #        elif times1 == 5:
 #            oled.fill(0)
-#            oled.text('Month',0,40)
+#            oled.text('Month',0,40)     #and that
 #            oled.show()
 #            utime.sleep(1)
 #        elif times1 == 6:
 #            oled.fill(0)
-#            oled.text('Year',0,40)
+#            oled.text('Year',0,40)     #hehe, that too!
 #            oled.show()
 #            utime.sleep(1)
 
