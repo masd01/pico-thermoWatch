@@ -1,7 +1,6 @@
 import machine
 import ssd1306
 import time
-import utime
 from machine import ADC
 
 #set up on board thermo sensor
@@ -82,13 +81,13 @@ while True:
             oled.text('Set',0,0)
             oled.text('Month',0,20)
             oled.show()
-            utime.sleep(1) 
+            time.sleep(1) 
         elif times1 == 5:
             oled.fill(0)
             oled.text('Set',0,0)
             oled.text('Year',0,20)
             oled.show()
-            utime.sleep(1)
+            time.sleep(1)
         elif times1 == 6:
             times1 = 0
             oled.fill(0)
@@ -106,7 +105,7 @@ while True:
             oled.fill(0)
             oled.text("{:02d}:{:02d}:{:02d}".format(hours, minutes, seconds), 0, 0)
             oled.show()
-            time.sleep(0.1)
+            time.sleep(1)
         elif times1 == 2:
             minutes += 1
             if minutes == 60:
@@ -115,7 +114,7 @@ while True:
             oled.fill(0)
             oled.text("{:02d}:{:02d}:{:02d}".format(hours, minutes, seconds), 0, 0)
             oled.show()
-            time.sleep(0.1)
+            time.sleep(1)
         elif times1 == 3:
             days += 1
             if days == 32:
@@ -123,7 +122,7 @@ while True:
             oled.fill(0)
             oled.text("{:02d}/{:02d}/{:04d}".format(days, months, years), 0, 20)
             oled.show()
-            utime.sleep(0.1)
+            time.sleep(1)
         elif times1 == 4:
             months += 1
             if months == 13:
@@ -131,19 +130,20 @@ while True:
             oled.fill(0)
             oled.text("{:02d}/{:02d}/{:04d}".format(days, months, years), 0, 20)
             oled.show()
-            utime.sleep(0.1)
+            time.sleep(1)
         elif times1 == 5:
             years += 1            
             oled.fill(0)
             oled.text("{:02d}/{:02d}/{:04d}".format(days, months, years), 0, 20)
             oled.show()
-            utime.sleep(0.1)
+            time.sleep(1)
 
     update_time()
+#   update_date()
     oled.fill(0)
     oled.text("{:02d}:{:02d}:{:02d}".format(hours, minutes, seconds), 0, 0)
     oled.text("{:02d}/{:02d}/{:04d}".format(days, months, years), 0, 20)
     oled.text('Temp: '+ tstring,0,40)
     oled.show()
-    utime.sleep(1)
+    time.sleep(1)
    
