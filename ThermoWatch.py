@@ -42,7 +42,7 @@ def update_time():
 def update_date():
     global years, months, days
     days += 1
-    if days == 30:
+    if days == 31:
         days = 0
         months += 1
         if months == 12:
