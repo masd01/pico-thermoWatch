@@ -117,13 +117,17 @@ while True:
             oled.show()
             time.sleep(0.1)
         elif times1 == 3:
-            days += 1            
+            days += 1
+            if days == 32:
+                days = 1
             oled.fill(0)
             oled.text("{:02d}/{:02d}/{:04d}".format(days, months, years), 0, 20)
             oled.show()
             utime.sleep(0.1)
         elif times1 == 4:
-            months += 1            
+            months += 1
+            if months == 13:
+                months = 1
             oled.fill(0)
             oled.text("{:02d}/{:02d}/{:04d}".format(days, months, years), 0, 20)
             oled.show()
