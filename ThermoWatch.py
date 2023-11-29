@@ -139,24 +139,11 @@ while True:
             oled.show()
             utime.sleep(0.1)
 
-    #update time
     update_time()
-
-    #clear display
     oled.fill(0)
-
-    #display time
     oled.text("{:02d}:{:02d}:{:02d}".format(hours, minutes, seconds), 0, 0)
-
-    #display date
     oled.text("{:02d}/{:02d}/{:04d}".format(days, months, years), 0, 20)
-    
-    #display temperature
     oled.text('Temp: '+ tstring,0,40)
-
-    #show on the display
     oled.show()
-
-    #delay 1 sec
     utime.sleep(1)
    
