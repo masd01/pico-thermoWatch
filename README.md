@@ -6,3 +6,5 @@ raspberry pi pico, oled, 2 buttons, digital watch, thermometer
 buttons have a sec delay, 
 button1 shows the menu for setting hours, minutes, days, months, years, 
 button2 enters selected menu
+
+i think i mess with time :) 
