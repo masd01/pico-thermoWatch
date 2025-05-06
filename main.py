@@ -85,7 +85,7 @@ while True:
         if times1 < 5:
             oled.text(menu_options[times1], 0, 20)
         else:
-            oled.text("Ready!", 46, 20)  # Replaced 'masd' 😉
+            oled.text("Ready!", 46, 20)
         oled.show()
         time.sleep(0.3)  # Debounce delay
     
